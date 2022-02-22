@@ -1,4 +1,4 @@
-# JS-Advanced
+# <i>JS-Advanced</i>
 
 # Assignment 1:
 1) Get battles.json via. AJAX call
@@ -49,3 +49,37 @@ From that api this output is expected:
 3) API: http://api.nobelprize.org/v1/prize.json -> Fetch all data from API and find all the entries from year 2000 to 2019 and then find people who won prizes for category 'Chemistry'.
 
 4) API: https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json -> Fetch all data from API and find all the cancelled, delayed, diverted, on time flights for all airports from API 2 and check if the sum is equal to the total value.
+
+
+
+# Assignment 2
+
+Movies Data
+Api : https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
+Problem Statement : Fetch data from the given api
+Find list of movies done by each actor //Find name of actors and movies under each actor
+Find types of genres and movies under each genre
+Output will look similar to this
+{
+	actors :[
+			{
+				Name : “”,
+				Movies : []
+			},
+
+		],
+	Genres : [
+			{
+				Type : “”,
+				Movies : []
+			}
+		]
+}
+
+
+Given the position of two queens on a chess board, indicate whether or not they are positioned so that they can attack each other.
+Write a class called QueenAttack
+Create constructor that initializes the position for two queens
+Create a function canAttack which determines whether based on two position the queens can attack each other or not
+*Position will be based on matrix system ie first position will be [0,0] and last will be [7,7]
+
