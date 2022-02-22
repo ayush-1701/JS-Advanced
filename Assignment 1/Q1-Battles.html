@@ -1,0 +1,108 @@
+<html>
+    <head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <title>Assignment 1.1-Battle</title>
+
+   <style type="text/css">
+
+
+</style>
+</head>
+<body>
+
+   <div class="d-grid gap-2 col-6 mx-auto" style="padding: 40px;">
+       <button class="btn btn-warning" type="button" id="submit">Submit</button>
+     </div>
+
+   <div id="prizedata"></div>
+   <div id="span"></div>
+   <div id="message" class="container"></div>
+
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+<script>
+
+   $(document).ready(()=>{
+       $("#submit").click( ()=>{
+           let url = "battles.json";
+
+           $.ajax({
+               url:url,
+               type:'get',
+               dataType:'json',
+               success: (result)=>{
+                   let win=0
+                   let loss = 0
+                   let total_defender_size = 0
+                   let minDef = result[0].defender_size
+                   let maxDef = result[0].defender_size
+            
+                   var set1 = new Set();
+                   var set2 = new Set();
+                   var set3 = new Set();
+                   var attacker_king = new Set();
+                   var defender_king = new Set();
+
+
+                   for(var i=0 ;i<result.length; i++){
+                    if (result[i].attacker_outcome == 'win'){
+                        win+=1
+                    }
+                    else{
+                        loss+=1
+                    }
+
+                    total_defender_size += result[i].defender_size
+                    set1.add(result[i].battle_type+" ")
+                    set2.add(result[i].name+" ")
+                    set3.add(result[i].region+" ")
+                    attacker_king.add(result[i].attacker_king+" ")
+                    defender_king.add(result[i].defender_king+" ") 
+
+                    if(result[i].defender_size > maxDef && result[i].defender_size != null)
+                        maxDef = result[i].defender_size
+
+                    if(result[i].defender_size < minDef && result[i].defender_size != null)
+                        {
+                            minDef = result[i].defender_size
+                            console.log(minDef)
+                        }
+                   }
+
+document.write("<div class='container'> <center> <h1> Most Active </h1> <center> <table class='table table-bordered' cellpadding='20px;' border='5px'><thead><tr style='background-color:seagreen;'> <th>attacker_king</th> <th scope='col'> defender_king </th>  <th scope='col'> name </th>  <th scope='col'>region</th>  </tr></thead>");  
+
+document.write("</tr><td>"+ Array.from(attacker_king) +"</td><td> "+ Array.from(defender_king) +"</td><td>  "+ Array.from(set2) + "</td><td> "+ Array.from(set3) +"</td></tr><br> </table></div>")
+
+document.write("<div class='container'> <center> <h1> Attacker Outcome </h1> <center> <table class='table table-bordered' cellpadding='20px;' border='5px'></thead><tr style='background-color:seagreen;'> <th>Win</th> <th scope='col'> Loss </th>  </tr></thead>");  
+document.write("</tr><td>"+ win+"</td><td>"+ loss+"</td> </table></div>")
+
+document.write("<div class='container'> <center> <h1> Battle Type </h1> <center> <table class='table table-bordered' cellpadding='20px;' border='5px'></thead><tr style='background-color:seagreen;'> <th>battle types</th> </tr></thead>");  
+document.write("</tr><td>"+Array.from(set1)+"</td> </table></div>")
+
+document.write("<div class='container'> <center> <h1> Defender Size </h1> <center> <table class='table table-bordered' cellpadding='20px;' border='5px'></thead><tr style='background-color:seagreen;'> <th>average</th> <th scope='col'> min </th> <th scope='col'> max </th>  </tr></thead>");  
+document.write("</tr><td>"+ Math.round((total_defender_size/result.length)) +"</td> <td>"+ minDef +"</td> <td>"+ maxDef +"</td> </table></div>")
+              
+
+        },
+   error : function(error){
+		alert("error");
+		
+    }
+               
+            })
+        } )
+    })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+
+</body>
