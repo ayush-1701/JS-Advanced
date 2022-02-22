@@ -3,7 +3,6 @@
 # Assignment 1:
 1) Get battles.json via. AJAX call
 From battle json provide following output
-
 {
 'most_active':{
     'attacker_king',
@@ -29,10 +28,7 @@ From battle json provide following output
 Consider input as the search parameter.
 Visit this api to know moreI : https://developer.github.com/v3/search/
 Api documentation : https://api.github.com/search/repositories?q={{input from text}}
-
-
 From that api this output is expected:
-
 {
 	"name": "node",
       	"full_name": "nodejs/node",
@@ -50,8 +46,6 @@ From that api this output is expected:
 
 
 
-3) API: http://api.nobelprize.org/v1/prize.json ->
-Fetch all data from API and find all the entries from year 2000 to 2019 and then find people who won prizes for category 'Chemistry'.
+3) API: http://api.nobelprize.org/v1/prize.json -> Fetch all data from API and find all the entries from year 2000 to 2019 and then find people who won prizes for category 'Chemistry'.
 
-4) API: https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json
-Fetch all data from API and find all the cancelled, delayed, diverted, on time flights for all airports from API 2 and check if the sum is equal to the total value.
+4) API: https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json -> Fetch all data from API and find all the cancelled, delayed, diverted, on time flights for all airports from API 2 and check if the sum is equal to the total value.
