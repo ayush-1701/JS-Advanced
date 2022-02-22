@@ -60,8 +60,9 @@ Problem Statement : Fetch data from the given api
 Find list of movies done by each actor //Find name of actors and movies under each actor
 Find types of genres and movies under each genre
 Output will look similar to this
+
 {
-	actors :[
+	actors : [
 			{
 				Name : “”,
 				Movies : []
