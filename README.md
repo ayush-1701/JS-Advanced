@@ -61,21 +61,20 @@ Find list of movies done by each actor //Find name of actors and movies under ea
 Find types of genres and movies under each genre
 Output will look similar to this
 
-{
-	actors : [
-			{
-				Name : “”,
-				Movies : []
-			},
 
-		],
+		
+	actors : [
+		{
+			Name : “”,
+			Movies : []
+		},
 	Genres : [
 			{
 				Type : “”,
 				Movies : []
 			}
 		]
-}
+
 
 
 Given the position of two queens on a chess board, indicate whether or not they are positioned so that they can attack each other.
